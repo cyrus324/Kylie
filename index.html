@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin-top: -16px;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: pink; /* Pink background color */
+    }
+    .yes-content img {
+      max-height: 200px;
+    }
+    .yes-content .text-4xl {
+      font-weight: bold;
+      margin-top: 4px;
+    }
+    .no-content img {
+      max-height: 200px;
+    }
+    .no-content .text-4xl {
+      margin-top: 4px;
+      color: #FF5733;
+    }
+    .button-group {
+      margin-top: 8px;
+    }
+    .yes-button {
+      background-color: #26ff00;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 4px;
+      margin-right: 4px;
+    }
+    .no-button {
+      background-color: #ff000a;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="yes-content" style="display: none;">
+    <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" alt="Yay! Love you! Kylie Bhie💖">
+    <div class="text-4xl">Yay! Love you! Kylie Bhie💖 Miss you na po👉👈 </div>
+  </div>
+  <div class="no-content">
+    <img src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" alt="Will you be my Valentine?">
+    <h1 class="text-4xl my-4">Will you be my  Cute Valentine☺️? Kylie Bhie!</h1>
+    <div class="button-group">
+      <button class="yes-button" onclick="showYesContent()">Yes</button>
+      <button class="no-button" onclick="handleNoClick()">No</button>
+    </div>
+  </div>
+
+  <script>
+    let noCount = 0;
+
+    function handleNoClick() {
+      noCount++;
+      updateNoButtonText();
+    }
+
+    function updateNoButtonText() {
+      const phrases = ["No", "Are you sure?", "Really sure?", "Think again!", "Last chance!",
+        "Surely not?", "You might regret this!", "Give it another thought!",
+        "Are you absolutely certain?", "This could be a mistake!", "Have a heart!",
+        "Don't be so cold!", "Change of heart?", "Wouldn't you reconsider?",
+        "Is that your final answer?", "I will cry🥺", "I'm Crying😭", "You break my heart ;(", "Bad ka po"];
+
+      const buttonText = noCount === 0 ? "No" : phrases[Math.min(noCount, phrases.length - 1)];
+      document.querySelector('.no-content .no-button').innerText = buttonText;
+    }
+
+    function showYesContent() {
+      document.querySelector('.no-content').style.display = 'none';
+      const yesContent = document.querySelector('.yes-content');
+      yesContent.style.display = 'flex';
+      yesContent.querySelector('img').src = "https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif";
+    }
+  </script>
+</body>
+</html>
